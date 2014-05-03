@@ -77,6 +77,14 @@ for ck in countries.keys():
             countries[ck]["water_footprint_per_capita"] += int(countries[ck]["foods"][ak]*water_usage[ck][ak])
 watercsv.close()
 
+#Add in Greehouse Gasses for meats
+gas_dict = {"goat": 39.2, "cow": 27.0, "pig": 12.1, "chicken": 6.9, "fish": 9, 
+            "rice": 2.7, "potato": 2.9, "vegetable": 2.0, "wheat": 0.6}
+for ck in countries.keys():
+    countries[ck]["emissions_footprint_per_capita"] = 0
+    for ak in countries[ck]["foods"].keys():
+        countries[ck]["emissions_footprint_per_capita"] += int(countries[ck]["foods"][ak]*gas_dict[ak])
+
 #Now we add in some other random data for countries to add context
 metacsv = open("fof_diet.csv", "rU")
 for l in csv.reader(metacsv.readlines()[1:]):

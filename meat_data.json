@@ -1,6 +1,7 @@
 {
     "Brazil": {
         "water_footprint_per_capita": 734982, 
+        "emissions_footprint_per_capita": 1716, 
         "fat": 111.2, 
         "foods": {
             "wheat": 10338714500, 
@@ -20,6 +21,7 @@
     }, 
     "United Republic of Tanzania": {
         "water_footprint_per_capita": 238305, 
+        "emissions_footprint_per_capita": 439, 
         "fat": 41.8, 
         "foods": {
             "wheat": 726867500, 
@@ -39,6 +41,7 @@
     }, 
     "United States of America": {
         "water_footprint_per_capita": 685708, 
+        "emissions_footprint_per_capita": 2283, 
         "fat": 155.9, 
         "foods": {
             "wheat": 24953415700, 
@@ -58,6 +61,7 @@
     }, 
     "China": {
         "water_footprint_per_capita": 542959, 
+        "emissions_footprint_per_capita": 1852, 
         "fat": 96.1, 
         "foods": {
             "wheat": 90674512000, 
@@ -87,11 +91,13 @@
             "rice": 354810638000, 
             "goat": 549914521
         }, 
+        "population": 6656860000, 
         "water_footprint_per_capita": 476845, 
-        "population": 6656860000
+        "emissions_footprint_per_capita": 1221
     }, 
     "Japan": {
         "water_footprint_per_capita": 289627, 
+        "emissions_footprint_per_capita": 1302, 
         "fat": 86.8, 
         "foods": {
             "wheat": 6074496000, 
