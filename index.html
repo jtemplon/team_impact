@@ -4,6 +4,7 @@
 	<meta charset="utf-8" />
 	<title>Hackathon</title>
 	<meta name="generator" content="BBEdit 10.5" />
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -14,7 +15,7 @@
 
 	<div class="content_card" id="card_1">
 
-		<h1>What if </h1>
+		<h1>What if ... </h1>
 		
 		<!-- the user picks a first country. Add the class active so that it looks selected. Once a country is selcted it needs to be greyed out below  -->
 		<div class="country" id="unitedstates_first_1">
@@ -40,7 +41,7 @@
 		
 		<!-- user picks a second country from this list  -->
 
-		<h1> ate like </h1>
+		<h1> ate like ... </h1>
 		
 		<div class="country" id="unitedstates_second_2">
 		</div>
@@ -62,11 +63,12 @@
 		</div>
 
 		<!-- name tag is name of the next card in the series -->
-		<a href="" name="card_2">Go!</a>
+		<a href="" class="next_button main_button" name="card_2">Go!</a>
 
 	</div>
 		
 		<!-- this is what a card with aminal or plant icons on it would look like -->
+		
 		<div class="content_card" id="card_2">
 
 		<h1 id="card_2_head">COUNTRY would need XXXX more/fewer XXXXXX</h1>
@@ -90,18 +92,20 @@
 		<h1 id="card_3_head">COUNTRY would need XXXX more/fewer XXXXXX</h1>
 		
 		<div class="item_icons" id="card_3_sizer">
+			
+			<!-- this image is the size of the initial value and does not resize  -->
+			<img class="sizer" src="" id="card_3_initialicon"> 
+			
+			<!-- this is the item that resizes from the intial value to the final value, either larger or smaller-->
 			<img class="sizer" src="" id="card_3_sizericon"> 
 		</div>
-		<p class="card_3_text">Each icon equals XX ITEM</p>
 		
 		<!-- name tag is name of the next card in the series -->		
 		<a href="" name="card_4" class="next_button">Next</a>
 
 	</div>
-
-
-
-
+	
+	
 
 
 </div> 
