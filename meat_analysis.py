@@ -24,8 +24,8 @@ r = requests.post('http://faostat3.fao.org/faostat-api/rest/procedures/data', da
 food_data = r.json()
 
 pop_dict = {"Brazil": 193247000, "China": 1365580000, "Japan": 126552000, 
-                   "United Republic of Tanzania": 43525000, "United States of America": 307687000,
-                   "World": 6656860000}
+            "United Republic of Tanzania": 43525000, "United States of America": 307687000,
+            "World": 6656860000}
 
 meat_mapper = {"Bovine Meat": "cow", "Demersal Fish": "fish", "Freshwater Fish": "fish", "Marine Fish, Other": "fish",
                "Mutton & Goat Meat": "goat", "Pelagic Fish": "fish", "Pigmeat": "pig", "Poultry Meat": "chicken",
@@ -84,6 +84,14 @@ for ck in countries.keys():
     countries[ck]["emissions_footprint_per_capita"] = 0
     for ak in countries[ck]["foods"].keys():
         countries[ck]["emissions_footprint_per_capita"] += int(countries[ck]["foods"][ak]*gas_dict[ak])
+
+#Add in Land Use - stubbed until we find data
+land_dict = {"goat": 1, "cow": 1, "pig": 1, "chicken": 1, "fish": 1, 
+            "rice": 1, "potato": 1, "vegetable": 1, "wheat": 1}
+for ck in countries.keys():
+    countries[ck]["land_use_per_capita"] = 0
+    for ak in countries[ck]["foods"].keys():
+        countries[ck]["land_use_per_capita"] += int(countries[ck]["foods"][ak]*land_dict[ak])
 
 #Now we add in some other random data for countries to add context
 metacsv = open("fof_diet.csv", "rU")
