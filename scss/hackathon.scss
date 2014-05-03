@@ -22,6 +22,7 @@ body
 	font-size:16px;
 	font-family:'Lato', sans-serif;
 	font-weight:400;
+	color:464646;
 	}
 	
 p
@@ -73,31 +74,36 @@ li
 	float:none;
 	max-width:1000px;
 	border:1px solid blue;
-	margin:30px auto;	
+	height:655px;
+	position:relative;
 	}
 	
 .country_list
 	{
 	@include spanner (6, 1000, 0, 5);
 	float:none;
-	margin:20px auto;
+	margin:20px auto 10px;
 	border:1px solid yellow;
 		
 		li
 		{
 		@include spanner (6, 754.656, 0, 1);
 		border:1px solid red;
-		height:100px;
-		font-size:em(15);
+		height:180px;
+		font-size:em(14);
 		text-align:center;
 		color:$light_gray;
+		background-image:url('../siteart/country_test.svg');
+		background-position: left bottom;
+		background-repeat:no-repeat;
 		}
 	
 		.active
 		{
 		background-color:$pale_gray;
 		border-radius:3px;
-		
+		background-position: right bottom;
+	
 		
 		}
 	
@@ -125,6 +131,87 @@ li
 	font-size:em(13);
 	color:white;
 	padding-top:12px;
-	font-weight:900;
+	font-weight:900;	
+	position:absolute;
+	bottom:15px;
+	left:0px;
+	right:0px;
+	}
+	
+	
+.item_icons
+	{
+	border:1px solid green;
+	@include spanner (6, 1000, 0, 5);	
+	float:none;
+	margin:0 auto;
+	
+	
+		.icon
+		{
+		width:15px;
+		height:15px;
+		float:left;
+		background-image:url('../siteart/test_icon.svg');
+		background-position:left top;
+		}
+		
+		.icon_added
+		{
+		background-position:right top;	
+		}
+		
 	
 	}
+	
+.sizer_container
+	{
+	width:100%;
+	height:400px;
+	border:1px solid red;
+	position:relative;
+	
+		.sizer
+		{
+		width:150px;
+		height:150px;
+		position:absolute;
+		margin:auto;
+		top:0%;
+		bottom:0%;
+		left:0%;
+		right:0%;
+		border:1px solid green;
+		
+			img
+			{
+			width:100%
+			
+			}
+		
+		}		
+
+		.sizer_initial
+		{
+		width:200px;
+		height:200px;
+		position:absolute;
+		margin:auto;
+		top:0%;
+		bottom:0%;
+		left:0%;
+		right:0%;
+		border:2px solid yellow;
+		
+			img
+			{
+			width:100%
+			
+			}
+		
+		
+		}
+	
+	}
+	
+	
