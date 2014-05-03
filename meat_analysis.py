@@ -81,10 +81,10 @@ watercsv.close()
 metacsv = open("fof_diet.csv", "rU")
 for l in csv.reader(metacsv.readlines()[1:]):
     country = l[0]
-    countries[country]["kcal/day"] = l[1]
-    countries[country]["protein"] = l[2]
-    countries[country]["fat"] = l[3]
-    countries[country]["income"] = l[4]
+    countries[country]["kcal/day"] = float(l[1])
+    countries[country]["protein"] = float(l[2])
+    countries[country]["fat"] = float(l[3])
+    countries[country]["income"] = float(l[4])
 metacsv.close()
 
 #Add in the population and figure out the number of animals
@@ -92,12 +92,6 @@ for ck in countries.keys():
     countries[ck]["population"] = pop_dict[ck]
     for ak in countries[ck]["foods"].keys():
         countries[ck]["foods"][ak] = int(countries[ck]["foods"][ak] * pop_dict[ck] / float(kg_to_animals[ak]))
-
-
-#This is to print data.
-# for ck in countries.keys():
-#     for ak in countries[ck].keys():
-#         print "%s|%s|%s" %(ck, ak, countries[ck][ak])
 
 meat_data = json.dumps(countries, indent=4)
 f = open("meat_data.json", "w")
