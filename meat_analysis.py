@@ -86,8 +86,8 @@ for ck in countries.keys():
         countries[ck]["emissions_footprint_per_capita"] += int(countries[ck]["foods"][ak]*gas_dict[ak])
 
 #Add in Land Use - stubbed until we find data
-land_dict = {"goat": 1, "cow": 1, "pig": 1, "chicken": 1, "fish": 1, 
-            "rice": 1, "potato": 1, "vegetable": 1, "wheat": 1}
+land_dict = {"goat": 15.7, "cow": 16.7, "pig": 3.4, "chicken": 4.0, "fish": 2.4, 
+            "rice": 1.6, "potato": 3.5, "vegetable": 0.4, "wheat": 4.6}
 for ck in countries.keys():
     countries[ck]["land_use_per_capita"] = 0
     for ak in countries[ck]["foods"].keys():
