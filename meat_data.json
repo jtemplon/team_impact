@@ -1,1 +1,112 @@
-{"Brazil": {"meats": {"chicken": 3768316500, "fish": 1811690625, "goat": 5041226, "cow": 24827326, "pig": 32299855}, "population": 193247000}, "United Republic of Tanzania": {"meats": {"chicken": 26598611, "fish": 310115625, "goat": 1892391, "cow": 988533, "pig": 248714}, "population": 43525000}, "United States of America": {"meats": {"chicken": 8375923888, "fish": 5461444250, "goat": 6688847, "cow": 41511669, "pig": 132305410}, "population": 307687000}, "China": {"meats": {"chicken": 9559060000, "fish": 32432525000, "goat": 172181826, "cow": 22219606, "pig": 715954085}, "population": 1365580000}, "World": {"meats": {"chicken": 50296275555, "fish": 115662942500, "goat": 549914521, "cow": 216630020, "pig": 1502548400}, "population": 6656860000}, "Japan": {"meats": {"chicken": 1188182666, "fish": 5315184000, "goat": 1100452, "cow": 3775110, "pig": 35976925}, "population": 126552000}}
+{
+    "Brazil": {
+        "water_footprint_per_capita": 734982, 
+        "fat": 111.2, 
+        "foods": {
+            "wheat": 10338714500, 
+            "cow": 24827326, 
+            "potato": 3188575500, 
+            "fish": 1811690625, 
+            "pig": 32299855, 
+            "vegetable": 4715226800, 
+            "chicken": 3768316500, 
+            "rice": 6686346200, 
+            "goat": 5041226
+        }, 
+        "income": 10080.0, 
+        "kcal/day": 3173.0, 
+        "protein": 88.6, 
+        "population": 193247000
+    }, 
+    "United Republic of Tanzania": {
+        "water_footprint_per_capita": 238305, 
+        "fat": 41.8, 
+        "foods": {
+            "wheat": 726867500, 
+            "cow": 988533, 
+            "potato": 531004999, 
+            "fish": 310115625, 
+            "pig": 248714, 
+            "vegetable": 1288340000, 
+            "chicken": 26598611, 
+            "rice": 874852500, 
+            "goat": 1892391
+        }, 
+        "income": 1330.0, 
+        "kcal/day": 2137.0, 
+        "protein": 54.6, 
+        "population": 43525000
+    }, 
+    "United States of America": {
+        "water_footprint_per_capita": 685708, 
+        "fat": 155.9, 
+        "foods": {
+            "wheat": 24953415700, 
+            "cow": 41511669, 
+            "potato": 16522791900, 
+            "fish": 5461444250, 
+            "pig": 132305410, 
+            "vegetable": 20922716000, 
+            "chicken": 8375923888, 
+            "rice": 2553802100, 
+            "goat": 6688847
+        }, 
+        "income": 47240.0, 
+        "kcal/day": 3688.0, 
+        "protein": 112.9, 
+        "population": 307687000
+    }, 
+    "China": {
+        "water_footprint_per_capita": 542959, 
+        "fat": 96.1, 
+        "foods": {
+            "wheat": 90674512000, 
+            "cow": 22219606, 
+            "potato": 50253343999, 
+            "fish": 32432525000, 
+            "pig": 715954085, 
+            "vegetable": 381543051999, 
+            "chicken": 9559060000, 
+            "rice": 104193754000, 
+            "goat": 172181826
+        }, 
+        "income": 6740.0, 
+        "kcal/day": 3036.0, 
+        "protein": 93.8, 
+        "population": 1365580000
+    }, 
+    "World": {
+        "foods": {
+            "wheat": 439352760000, 
+            "cow": 216630020, 
+            "potato": 217013636000, 
+            "fish": 115662942500, 
+            "pig": 1502548400, 
+            "vegetable": 675671290000, 
+            "chicken": 50296275555, 
+            "rice": 354810638000, 
+            "goat": 549914521
+        }, 
+        "water_footprint_per_capita": 476845, 
+        "population": 6656860000
+    }, 
+    "Japan": {
+        "water_footprint_per_capita": 289627, 
+        "fat": 86.8, 
+        "foods": {
+            "wheat": 6074496000, 
+            "cow": 3775110, 
+            "potato": 2695557600, 
+            "fish": 5315184000, 
+            "pig": 35976925, 
+            "vegetable": 10516471200, 
+            "chicken": 1188182666, 
+            "rice": 6833808000, 
+            "goat": 1100452
+        }, 
+        "income": 32630.0, 
+        "kcal/day": 2723.0, 
+        "protein": 89.6, 
+        "population": 126552000
+    }
+}
