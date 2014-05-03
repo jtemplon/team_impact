@@ -1,5 +1,7 @@
 {
     "Brazil": {
+        "water_footprint_per_capita": 734982, 
+        "fat": "111.2", 
         "foods": {
             "wheat": 10338714500, 
             "cow": 24827326, 
@@ -11,9 +13,14 @@
             "rice": 6686346200, 
             "goat": 5041226
         }, 
+        "income": "10080", 
+        "kcal/day": "3173", 
+        "protein": "88.6", 
         "population": 193247000
     }, 
     "United Republic of Tanzania": {
+        "water_footprint_per_capita": 238305, 
+        "fat": "41.8", 
         "foods": {
             "wheat": 726867500, 
             "cow": 988533, 
@@ -25,9 +32,14 @@
             "rice": 874852500, 
             "goat": 1892391
         }, 
+        "income": "1330", 
+        "kcal/day": "2137", 
+        "protein": "54.6", 
         "population": 43525000
     }, 
     "United States of America": {
+        "water_footprint_per_capita": 685708, 
+        "fat": "155.9", 
         "foods": {
             "wheat": 24953415700, 
             "cow": 41511669, 
@@ -39,9 +51,14 @@
             "rice": 2553802100, 
             "goat": 6688847
         }, 
+        "income": "47240", 
+        "kcal/day": "3688", 
+        "protein": "112.9", 
         "population": 307687000
     }, 
     "China": {
+        "water_footprint_per_capita": 542959, 
+        "fat": "96.1", 
         "foods": {
             "wheat": 90674512000, 
             "cow": 22219606, 
@@ -53,6 +70,9 @@
             "rice": 104193754000, 
             "goat": 172181826
         }, 
+        "income": "6740", 
+        "kcal/day": "3036", 
+        "protein": "93.8", 
         "population": 1365580000
     }, 
     "World": {
@@ -67,9 +87,12 @@
             "rice": 354810638000, 
             "goat": 549914521
         }, 
+        "water_footprint_per_capita": 476845, 
         "population": 6656860000
     }, 
     "Japan": {
+        "water_footprint_per_capita": 289627, 
+        "fat": "86.8", 
         "foods": {
             "wheat": 6074496000, 
             "cow": 3775110, 
@@ -81,6 +104,9 @@
             "rice": 6833808000, 
             "goat": 1100452
         }, 
+        "income": "32630", 
+        "kcal/day": "2723", 
+        "protein": "89.6", 
         "population": 126552000
     }
 }
