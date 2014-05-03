@@ -1,0 +1,130 @@
+@import "mixins";
+@import "shortcuts";
+
+$light_gray: #666;
+$green: #5d8542;
+$pale_gray: #ededed;
+
+*
+	{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	}
+
+a
+	{
+	text-decoration:none;
+	
+	}
+	
+body
+	{
+	font-size:16px;
+	font-family:'Lato', sans-serif;
+	font-weight:400;
+	}
+	
+p
+	{
+	font-size:em(16);
+	}
+	
+	
+h1
+	{
+	font-size:em(28);
+	font-weight:400px;
+	text-align:center;
+	}
+
+ul
+	{
+	margin:0px;
+	padding:0px;
+	
+	}
+
+li
+	{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	}
+
+.clear
+	{
+	clear:both;
+	height:0px;
+	width:100%;
+	}
+	
+.main_content
+	{
+	@include spanner (6, 1000, 0, 6);
+	float:none;
+	max-width:1000px;
+	border:1px solid red;
+	margin:30px auto;
+	}
+	
+.content_card
+	{
+	@include spanner (6, 1000, 0, 6);
+	float:none;
+	max-width:1000px;
+	border:1px solid blue;
+	margin:30px auto;	
+	}
+	
+.country_list
+	{
+	@include spanner (6, 1000, 0, 5);
+	float:none;
+	margin:20px auto;
+	border:1px solid yellow;
+		
+		li
+		{
+		@include spanner (6, 754.656, 0, 1);
+		border:1px solid red;
+		height:100px;
+		font-size:em(15);
+		text-align:center;
+		color:$light_gray;
+		}
+	
+		.active
+		{
+		background-color:$pale_gray;
+		border-radius:3px;
+		
+		
+		}
+	
+	}
+	
+.utility_text
+	{
+	font-size:em(11);
+	color:$light_gray;
+	font-weight:700;
+	text-align:center;
+	margin:0 0;
+	text-transform:uppercase;	
+	}
+	
+.next_button
+	{
+	width:300px;
+	height:40px;
+	margin:20px auto;
+	background-color:$green;
+	border-radius:2px;
+	display:block;
+	text-align:center;
+	font-size:em(13);
+	color:white;
+	padding-top:12px;
+	font-weight:900;
+	
+	}
