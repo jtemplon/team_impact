@@ -1,0 +1,98 @@
+/* mixins */
+/* makes a multicolumn responsive box */
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+body {
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400; }
+
+p {
+  font-size: 1em; }
+
+h1 {
+  font-size: 1.75em;
+  font-weight: 400px;
+  text-align: center; }
+
+ul {
+  margin: 0px;
+  padding: 0px; }
+
+li {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px; }
+
+.clear {
+  clear: both;
+  height: 0px;
+  width: 100%; }
+
+.main_content {
+  width: 100.0%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  max-width: 1000px;
+  border: 1px solid red;
+  margin: 30px auto; }
+
+.content_card {
+  width: 100.0%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  max-width: 1000px;
+  border: 1px solid blue;
+  margin: 30px auto; }
+
+.country_list {
+  width: 83.33333%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  margin: 20px auto;
+  border: 1px solid yellow; }
+  .country_list li {
+    width: 16.66667%;
+    margin: 0 0% 0 0;
+    box-sizing: border-box;
+    float: left;
+    border: 1px solid red;
+    height: 100px;
+    font-size: 0.9375em;
+    text-align: center;
+    color: #666666; }
+  .country_list .active {
+    background-color: #ededed;
+    border-radius: 3px; }
+
+.utility_text {
+  font-size: 0.6875em;
+  color: #666666;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0;
+  text-transform: uppercase; }
+
+.next_button {
+  width: 300px;
+  height: 40px;
+  margin: 20px auto;
+  background-color: #5d8542;
+  border-radius: 2px;
+  display: block;
+  text-align: center;
+  font-size: 0.8125em;
+  color: white;
+  padding-top: 12px;
+  font-weight: 900; }
