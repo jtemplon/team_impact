@@ -39,20 +39,21 @@ for c in food_data:
     value = c[10]
     meat_type = meat_mapper[meat_name]
     if country in countries.keys():
-        if meat_type in countries[country].keys():
-            countries[country][meat_type] += float(value)
+        if meat_type in countries[country]["meats"].keys():
+            countries[country]["meats"][meat_type] += float(value)
         else:
-            countries[country][meat_type] = float(value)
+            countries[country]["meats"][meat_type] = float(value)
     else:
-        countries[country] = {}
+        countries[country] = {"meats":{}}
         if meat_type in countries[country].keys():
-            countries[country][meat_type] += float(value)
+            countries[country]["meats"][meat_type] += float(value)
         else:
-            countries[country][meat_type] = float(value)
+            countries[country]["meats"][meat_type] = float(value)
 
 for ck in countries.keys():
-    for ak in countries[ck].keys():
-        countries[ck][ak] = int(countries[ck][ak] * pop_dict[ck] / float(kg_to_animals[ak]))
+    countries[ck]["population"] = pop_dict[ck]
+    for ak in countries[ck]["meats"].keys():
+        countries[ck]["meats"][ak] = int(countries[ck]["meats"][ak] * pop_dict[ck] / float(kg_to_animals[ak]))
 
 #This is to print data.
 # for ck in countries.keys():
