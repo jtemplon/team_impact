@@ -5,7 +5,21 @@
   -moz-box-sizing: border-box; }
 
 a {
-  text-decoration: none; }
+  text-decoration: none;
+  color: #999999;
+  transition-property: all;
+  transition-duration: .07s;
+  transition-timing-function: ease-in-out; }
+  a:hover {
+    color: #317182; }
+
+a img {
+  border: none;
+  transition-property: all;
+  transition-duration: .07s;
+  transition-timing-function: ease-in-out; }
+  a img:hover {
+    opacity: .5; }
 
 body {
   font-size: 16px;
@@ -62,7 +76,8 @@ li {
   float: left;
   float: none;
   max-width: 1000px;
-  margin: 30px auto; }
+  margin: 30px auto;
+  width: 1000px; }
 
 .chatter {
   width: 83.33333%;
@@ -100,7 +115,7 @@ li {
   box-sizing: border-box;
   float: left;
   float: none;
-  margin: 0 auto; }
+  margin: 20px auto 0px; }
   .foods_list li {
     width: 9.33333%;
     margin: 0 2% 0 0;
@@ -109,7 +124,7 @@ li {
     height: 28px;
     border-radius: 2px;
     text-align: center;
-    font-size: 0.875em;
+    font-size: 0.8125em;
     color: white;
     background-color: #4094aa;
     padding-top: 5px;
@@ -201,7 +216,8 @@ li {
   transition-duration: .07s;
   transition-timing-function: ease-in-out; }
   .next_button:hover {
-    background-color: #317182; }
+    background-color: #317182;
+    color: white; }
 
 .item_icons {
   width: 83.33333%;
@@ -260,7 +276,6 @@ li {
   float: left;
   float: none;
   margin: 80px auto;
-  border-right: 2px solid #999999;
   height: 250px;
   position: relative;
   background-color: #ebebeb; }
@@ -310,7 +325,7 @@ li {
 
 .key {
   font-size: 0.875em;
-  width: 43.33333%;
+  width: 30.0%;
   margin: 0 0% 0 0;
   box-sizing: border-box;
   float: left;
@@ -324,8 +339,16 @@ li {
     width: 14px;
     height: 14px;
     background-color: #999999;
-    margin: 0 20px 0 10px; }
+    margin: 0 20px 0 10px;
+    vertical-align: bottom;
+    line-height: .8em; }
   .key .added {
     background-color: #cc0202; }
   .key .reduced {
     background-color: #f0b3b3; }
+
+.logo {
+  width: 60px;
+  float: left;
+  margin-top: -20px;
+  margin-right: 10px; }
