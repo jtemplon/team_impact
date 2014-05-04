@@ -5,6 +5,30 @@ $light_gray: #666;
 $green: #5d8542;
 $pale_gray: #ededed;
 
+$background:#f5f9fa;
+$dark_background:#d2d2dc;
+$body:#222;
+$red: #cc0202;
+$red_too: #f0b3b3;
+$dark_red:#a50202;
+$silver: #cac8d2;
+$hover:#548096; 
+$aqua_blue:#4094aa;
+$dark_aqua:#317182;
+$light_aqua:#9db9c1;
+$pale_gray: #ededed;
+$light_gray: #999;
+$medium_gray: #666;
+$dark_gray:#555;
+$text:#222;
+$yellow:#f0f0dc;
+$green:#6B8E23;
+$white:#fff;
+
+
+
+
+
 *
 	{
 	box-sizing:border-box;
@@ -37,6 +61,15 @@ h1
 	font-weight:400px;
 	text-align:center;
 	}
+
+h2
+	{
+	@include spanner (6, 1000, 0, 5);
+	float:none;
+	margin:0 auto;
+	font-size:em(18);
+	}
+
 
 ul
 	{
@@ -78,24 +111,58 @@ li
 	position:relative;
 	}
 	
+	
+.foods_list
+	{
+	@include spanner (6, 1000, 0, 5);
+	float:none;
+	margin:0 auto;	
+	
+	li
+		{
+		@include spanner (9, 1000, 20, 1);
+		height:28px;
+		border-radius:2px;
+		text-align:center;
+		font-size:em(14);
+		color:white;
+		background-color:$aqua_blue;
+		padding-top:5px;
+	 	@include transition;
+		
+		&:hover
+		{
+		background-color:$dark_aqua;
+		cursor:pointer;
+		}
+		
+			&:nth-child(9)
+			{
+			margin-right:0px;
+			
+			}
+		
+		
+		}
+	
+	}
+	
 .country_list
 	{
 	@include spanner (6, 1000, 0, 5);
 	float:none;
-	margin:20px auto 10px;
-	border:1px solid yellow;
+	margin:20px auto 30px;
 		
 		li
 		{
 		@include spanner (6, 754.656, 0, 1);
-		border:1px solid red;
-		height:180px;
+		height:125px;
 		font-size:em(14);
 		text-align:center;
 		color:$light_gray;
-		background-image:url('../siteart/country_test.svg');
-		background-position: left bottom;
+		background-image:url('../siteart/map.svg');
 		background-repeat:no-repeat;
+		background-size:270px;
 		}
 	
 		.active
@@ -106,6 +173,74 @@ li
 	
 		
 		}
+	
+		.united_states
+			{
+			background-position: left 10px;				
+
+			&:hover
+			{
+			background-position: -136px 10px;		
+			}
+			
+			}
+	
+		.china
+			{
+			background-position: left -261px;
+			
+			&:hover
+			{
+			background-position: right -261px;		
+			}
+			
+			}
+	
+		.tanzania
+			{
+			background-position: left -126px;
+			
+			&:hover
+			{
+			background-position: right -126px;		
+			}
+			
+			}	
+	
+		.brazil
+			{
+			background-position: left -531px;
+			
+			&:hover
+			{
+			background-position: right -531px;		
+			}
+			
+			}	
+
+		.japan
+			{
+			background-position: left -396px;
+			
+			&:hover
+			{
+			background-position: right -396px;		
+			}
+			
+			}	
+
+	.world
+			{
+			background-position: left -667px;
+			
+			&:hover
+			{
+			background-position: right -667px;		
+			}
+			
+			}	
+
+
 	
 	}
 	
@@ -124,7 +259,7 @@ li
 	width:300px;
 	height:40px;
 	margin:20px auto;
-	background-color:$green;
+	background-color:$aqua_blue;
 	border-radius:2px;
 	display:block;
 	text-align:center;
@@ -136,6 +271,14 @@ li
 	bottom:15px;
 	left:0px;
 	right:0px;
+	@include transition;
+
+	
+		&:hover
+		{
+		background-color:$dark_aqua;
+		}
+	
 	}
 	
 	
@@ -152,15 +295,20 @@ li
 		width:15px;
 		height:15px;
 		float:left;
-		background-image:url('../siteart/test_icon.svg');
+		background-color:$red;
+		border:1px solid white;
 		background-position:left top;
 		}
 		
 		.icon_added
 		{
-		background-position:right top;	
+		background-color:$dark_red;
 		}
-		
+
+		.icon_subtracted
+		{
+		background-color:$red_too;
+		}		
 	
 	}
 	

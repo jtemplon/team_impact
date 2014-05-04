@@ -21,6 +21,15 @@ h1 {
   font-weight: 400px;
   text-align: center; }
 
+h2 {
+  width: 83.33333%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  margin: 0 auto;
+  font-size: 1.125em; }
+
 ul {
   margin: 0px;
   padding: 0px; }
@@ -90,7 +99,7 @@ li {
   box-sizing: border-box;
   float: left;
   float: none;
-  margin: 20px auto 10px; }
+  margin: 20px auto 30px; }
   .country_list li {
     width: 16.66667%;
     margin: 0 0% 0 0;
@@ -174,10 +183,13 @@ li {
     width: 15px;
     height: 15px;
     float: left;
-    background-image: url("../siteart/test_icon.svg");
+    background-color: #cc0202;
+    border: 1px solid white;
     background-position: left top; }
   .item_icons .icon_added {
-    background-position: right top; }
+    background-color: #a50202; }
+  .item_icons .icon_subtracted {
+    background-color: #f0b3b3; }
 
 .sizer_container {
   width: 100%;
