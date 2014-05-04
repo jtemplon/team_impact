@@ -56,35 +56,85 @@ li {
   height: 655px;
   position: relative; }
 
+.foods_list {
+  width: 83.33333%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  margin: 0 auto; }
+  .foods_list li {
+    width: 9.33333%;
+    margin: 0 2% 0 0;
+    box-sizing: border-box;
+    float: left;
+    height: 28px;
+    border-radius: 2px;
+    text-align: center;
+    font-size: 0.875em;
+    color: white;
+    background-color: #4094aa;
+    padding-top: 5px;
+    transition-property: all;
+    transition-duration: .07s;
+    transition-timing-function: ease-in-out; }
+    .foods_list li:hover {
+      background-color: #317182;
+      cursor: pointer; }
+    .foods_list li:nth-child(9) {
+      margin-right: 0px; }
+
 .country_list {
   width: 83.33333%;
   margin: 0 0% 0 0;
   box-sizing: border-box;
   float: left;
   float: none;
-  margin: 20px auto 10px;
-  border: 1px solid yellow; }
+  margin: 20px auto 10px; }
   .country_list li {
     width: 16.66667%;
     margin: 0 0% 0 0;
     box-sizing: border-box;
     float: left;
-    border: 1px solid red;
-    height: 180px;
+    height: 125px;
     font-size: 0.875em;
     text-align: center;
-    color: #666666;
-    background-image: url("../siteart/country_test.svg");
-    background-position: left bottom;
-    background-repeat: no-repeat; }
+    color: #999999;
+    background-image: url("../siteart/map.svg");
+    background-repeat: no-repeat;
+    background-size: 270px; }
   .country_list .active {
     background-color: #ededed;
     border-radius: 3px;
     background-position: right bottom; }
+  .country_list .united_states {
+    background-position: left 10px; }
+    .country_list .united_states:hover {
+      background-position: -136px 10px; }
+  .country_list .china {
+    background-position: left -261px; }
+    .country_list .china:hover {
+      background-position: right -261px; }
+  .country_list .tanzania {
+    background-position: left -126px; }
+    .country_list .tanzania:hover {
+      background-position: right -126px; }
+  .country_list .brazil {
+    background-position: left -531px; }
+    .country_list .brazil:hover {
+      background-position: right -531px; }
+  .country_list .japan {
+    background-position: left -396px; }
+    .country_list .japan:hover {
+      background-position: right -396px; }
+  .country_list .world {
+    background-position: left -667px; }
+    .country_list .world:hover {
+      background-position: right -667px; }
 
 .utility_text {
   font-size: 0.6875em;
-  color: #666666;
+  color: #999999;
   font-weight: 700;
   text-align: center;
   margin: 0 0;
@@ -94,7 +144,7 @@ li {
   width: 300px;
   height: 40px;
   margin: 20px auto;
-  background-color: #5d8542;
+  background-color: #4094aa;
   border-radius: 2px;
   display: block;
   text-align: center;
@@ -105,7 +155,12 @@ li {
   position: absolute;
   bottom: 15px;
   left: 0px;
-  right: 0px; }
+  right: 0px;
+  transition-property: all;
+  transition-duration: .07s;
+  transition-timing-function: ease-in-out; }
+  .next_button:hover {
+    background-color: #317182; }
 
 .item_icons {
   border: 1px solid green;
