@@ -280,14 +280,29 @@ var setUpCircle = function(item, key, firstData, secondData) {
 	    var weighted_keys = ['land_use_per_capita', 'water_footprint_per_capita', 'emissions_footprint_per_capita'];
 	    if (jQuery.inArray(key, weighted_keys) >= 0){
 	        diff = (secondData[key] * firstData.population) - (firstData[key] * firstData.population);
-	        return Math.round(diff)
+	        return diff
 	    } else {
 	        diff = secondData[key] - firstData[key];
-	        return Math.round(diff)
+	        return diff
 	    } 
 	}
+	function fixNumbers(diff) {
+	    if (1 > Math.abs(diff) > 0) {
+	        //Handling the really small number case
+	        if (Math.abs(diff) < 0.01) {
+	            diff = "0.01";
+	            return diff
+	        } else {
+	            diff = Math.abs(diff).toFixed(2);
+    	        return diff
+	        }
+	    } else {
+	        diff = Math.abs(Math.round(diff));
+	        return diff
+	    }
+	}
 	$($(item).find('span')[1]).html(displayLookup(firstCountry)[0].toUpperCase() + displayLookup(firstCountry).substring(1))
-	$($(item).find('span')[2]).html(addCommas(Math.abs(findDiff()))+ ' ')
+	$($(item).find('span')[2]).html(addCommas(fixNumbers(findDiff()))+ ' ')
 	$($(item).find('span')[3]).html(increaseOrDecrease(findDiff()))
 	$($(item).find('span')[4]).html(displayLookup(secondCountry))
 	var circleSize = 200;
