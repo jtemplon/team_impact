@@ -9,6 +9,7 @@ var initialize = function(){
 	setUpSubmit();
 	loadAllData();
 	hideShowCard($('#card_1'));
+	$('.commodities').hide();
 };
 
 var setUpSubmit = function (){
@@ -188,6 +189,7 @@ warning = false;
 		warning = true;
 	}
 	$(element).find('.icon').remove();
+	array = new Array(1000);
 
 	$.each(array, function(index, item){
 		$(element).find('.item_icons').prepend('<div class="icon"></div>')
@@ -227,25 +229,30 @@ arrayNumber = Number(arrayNumber.toFixed(0))
 var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumber, maxNumber) {
 			$(element).find('.item_icons').find('.icon-added').remove()
 			$(element).find('.item_icons').find('item-subtracted').remove()
-	var diff = secondData.foods[key] - firstData.foods[key]
-	if (maxNumber) {
-		ratio = firstData.foods[key]/maxNumber;
-		oldArrayNumber = ratio * 2000
-		newArrayNumber = (secondData.foods[key]/maxNumber) * 2000
-} 
-arrayNumber = Number((newArrayNumber - oldArrayNumber).toFixed(0))
-	var array = new Array(Math.abs(arrayNumber));
-	boxEquals = maxNumber/2000
-	diff = diff * boxEquals
-	console.log(diff, firstData.foods[key], secondData.foods[key], boxEquals, ratio, maxNumber )
-	$.each(array, function(index, item){
-		if (diff > 0) {
-			$(element).find('.item_icons .clear').before('<div class="icon_added icon"></div>')
+			var list = [firstData.foods[key], secondData.foods[key]]
+			var max = list.sort(function(a, b){return a-b}).reverse()[0]
+			var min = list.sort(function(a, b){return a-b})[0]
+			var percent = (min/max)
+			console.log(percent, firstData.foods[key], secondData.foods[key])
+			if (secondData.foods[key] > firstData.foods[key]) {
+				whichWay = 'increase'
+			} else {
+				whichWay = 'decrease'
+			}
+			var arrayLength = percent * 1000
+			var arrayNumber = Number(arrayLength.toFixed(0));
+			var array = new Array(arrayNumber)
+	console.log(diff, firstData.foods[key], secondData.foods[key], ratio, maxNumber, arrayNumber )
+		if (whichWay === 'increase') {
+
+			$(element).find('.item_icons .icon').slice(arrayNumber * -1).addClass('icon_added');
+
+}
+
+	if (whichWay === 'decrease') {
+		console.log('decrease', arrayNumber)
+			$(element).find('.item_icons .icon').slice(arrayNumber * -1).addClass('icon_subtracted');
 		}
-		else {
-			$('#card_' + cardNumber).find('.item_icons .icon').slice(diff).addClass('icon_subtracted');
-		}
-	})
 };
 
 function addCommas(nStr)
