@@ -37,7 +37,7 @@ kg_to_animals = {"cow": 295, "pig": 70, "goat": 23, "chicken": 1.8, "fish": 0.8,
 
 countries = {}
 
-#This is where I meats and sum
+#This is where I make meats and sum
 for c in food_data:
     country = c[2]
     meat_name = c[4]
@@ -85,7 +85,7 @@ for ck in countries.keys():
     for ak in countries[ck]["foods"].keys():
         countries[ck]["emissions_footprint_per_capita"] += int(countries[ck]["foods"][ak]*gas_dict[ak])
 
-#Add in Land Use - stubbed until we find data
+#Add in Land Use
 land_dict = {"goat": 15.7, "cow": 16.7, "pig": 3.4, "chicken": 4.0, "fish": 2.4, 
             "rice": 1.6, "potato": 3.5, "vegetable": 0.4, "wheat": 4.6}
 for ck in countries.keys():
