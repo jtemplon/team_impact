@@ -252,19 +252,28 @@ function addCommas(nStr)
 }
 
 var setUpCircle = function(item, key, firstData, secondData) {
-	function increaseOrDecrease() {
-		diff = secondData[key] - firstData[key];
+	function increaseOrDecrease(diff) {
  		if (diff >= 0) {
 			return 'more'
 		} else {
 			return 'fewer'
 		}
 	}
+	function findDiff() {
+	    var weighted_keys = ['land_use_per_capita', 'water_footprint_per_capita', 'emissions_footprint_per_capita'];
+	    if (jQuery.inArray(key, weighted_keys) >= 0){
+	        diff = (secondData[key] * firstData.population) - (firstData[key] * firstData.population);
+	        return Math.round(diff)
+	    } else {
+	        diff = secondData[key] - firstData[key];
+	        return Math.round(diff)
+	    } 
+	}
 	$($(item).find('span')[1]).html(displayLookup(firstCountry))
-	$($(item).find('span')[2]).html(addCommas(Math.abs(secondData[key] - firstData[key]))+ ' ')
-	$($(item).find('span')[3]).html(increaseOrDecrease())
+	$($(item).find('span')[2]).html(addCommas(Math.abs(findDiff()))+ ' ')
+	$($(item).find('span')[3]).html(increaseOrDecrease(findDiff()))
 	$($(item).find('span')[4]).html(displayLookup(secondCountry))
-	var circleSize =200;
+	var circleSize = 200;
 	$(item).find('.sizer_initial').css({width: circleSize, height: circleSize})
 	$(item).find('.sizer').css({width: circleSize, height: circleSize})
 };
