@@ -214,14 +214,17 @@ li {
     width: 9px;
     height: 9px;
     float: left;
-    background-color: #cc0202;
+    background-color: #999999;
     background-position: left top;
     border-right: 1px solid white;
     border-bottom: 1px solid white; }
   .item_icons .icon_added {
-    background-color: #999999; }
+    background-color: #cc0202; }
   .item_icons .icon_subtracted {
     background-color: #f0b3b3; }
+
+.special_icon .icon {
+  background-color: #cc0202; }
 
 .sizer_container {
   width: 100%;
@@ -320,9 +323,9 @@ li {
     display: inline-block;
     width: 14px;
     height: 14px;
-    background-color: #cc0202;
+    background-color: #999999;
     margin: 0 20px 0 10px; }
   .key .added {
-    background-color: #999999; }
+    background-color: #cc0202; }
   .key .reduced {
     background-color: #f0b3b3; }
