@@ -70,7 +70,7 @@ var foodLookup = {
 	'fish': 'fish',
 	'pigs': 'pig',
 	'vegetables': 'vegetable',
-	'chickens ': 'chicken',
+	'chickens': 'chicken',
 	'rice': 'rice',
 	'goats': 'goat'
 }
@@ -197,6 +197,9 @@ warning = false;
 	if (warning) {
 		$(element).find('.item_icons').append('<p class="warning">*Too small amount to display.</p>')
 	}
+	var text = $(element).attr('id')
+	var max = firstData.foods[foodLookup[text]]
+	$(element).find('.explainer_text span').html(addCommas((max/1000).toFixed(0)))
 };
 
 var addMultipleIconsPopulation= function(element, key, firstData, secondData, iconNumber, maxNumber) {
@@ -222,8 +225,8 @@ arrayNumber = Number(arrayNumber.toFixed(0))
 	$('#card_2_pop2').next().prepend('<div class="icon"></div>')
 })
 	$('#card_2_text').html('Each icon equals ' + addCommas(maxNumber/2000) + ' people.')
-	$('#card_2_pop1').html('Population of ' + displayLookup(firstCountry))
-	$('#card_2_pop2').html('Population of ' + displayLookup(secondCountry))
+	$('#card_2_pop1').html('Population of ' + displayLookup(firstCountry) + ': ' + addCommas(firstData.population))
+	$('#card_2_pop2').html('Population of ' + displayLookup(secondCountry) + ': ' + addCommas(secondData.population))
 };
 
 var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumber, maxNumber) {
@@ -233,7 +236,6 @@ var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumb
 			var max = list.sort(function(a, b){return a-b}).reverse()[0]
 			var min = list.sort(function(a, b){return a-b})[0]
 			var percent = (min/max)
-			console.log(percent, firstData.foods[key], secondData.foods[key])
 			if (secondData.foods[key] > firstData.foods[key]) {
 				whichWay = 'increase'
 			} else {
@@ -242,7 +244,6 @@ var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumb
 			var arrayLength = percent * 1000
 			var arrayNumber = Number(arrayLength.toFixed(0));
 			var array = new Array(arrayNumber)
-	console.log(diff, firstData.foods[key], secondData.foods[key], ratio, maxNumber, arrayNumber )
 		if (whichWay === 'increase') {
 
 			$(element).find('.item_icons .icon').slice(arrayNumber * -1).addClass('icon_added');
@@ -250,7 +251,6 @@ var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumb
 }
 
 	if (whichWay === 'decrease') {
-		console.log('decrease', arrayNumber)
 			$(element).find('.item_icons .icon').slice(arrayNumber * -1).addClass('icon_subtracted');
 		}
 };
@@ -307,10 +307,10 @@ var advanceCard = function(event){
 	event.preventDefault();
 	var currentlyShownCard = $('.content_card:visible');
 	var currentlyShownCardNumber = currentlyShownCard.attr('id').replace('card_', '')
-	if (currentlyShownCardNumber === "3") {
-		newCardToShow = $('#card_x')
-	} else if (currentlyShownCardNumber === 'x') {
+	if (currentlyShownCardNumber === 'x') {
 		newCardToShow = $('#card_5')
+	} else if (currentlyShownCardNumber === '2') {
+		newCardToShow = $('#card_x')
 	} else {
 	var newCardNumber = Number(currentlyShownCardNumber) +1
 	var newCardToShow = $('#card_' + newCardNumber);	
@@ -357,7 +357,7 @@ var displayFoods = function() {
 	addMultipleIconsStart($('#vegetables'), 'foods["vegetables"]', firstData, secondData, Number((firstData.foods.vegetable).toFixed(0)), maxNumber);
 	addMultipleIconsStart($('#chickens'), 'foods["chickens"]', firstData, secondData, Number((firstData.foods.chicken).toFixed(0)), maxNumber);
 	addMultipleIconsStart($('#rice'), 'foods["rice"]', firstData, secondData, Number((firstData.foods.rice).toFixed(0)), maxNumber);
-	addMultipleIconsStart($('#goat'), 'foods["goat"]', firstData, secondData, Number((firstData.foods.goat).toFixed(0)), maxNumber);
+	addMultipleIconsStart($('#goats'), 'foods["goat"]', firstData, secondData, Number((firstData.foods.goat).toFixed(0)), maxNumber);
 $('.foods_list li').first().click();
 };
 
