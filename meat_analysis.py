@@ -22,6 +22,7 @@ data["payload"] = {"datasource":"faostat",
 data["payload"] = json.dumps(data["payload"])
 r = requests.post('http://faostat3.fao.org/faostat-api/rest/procedures/data', data)
 food_data = r.json()
+print food_data[0]
 
 pop_dict = {"Brazil": 193247000, "China": 1365580000, "Japan": 126552000, 
             "United Republic of Tanzania": 43525000, "United States of America": 307687000,
