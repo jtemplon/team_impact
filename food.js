@@ -43,13 +43,7 @@ var setUpSubmit = function (){
 	}
 }
 
-var makeBigger = function(elementSelector, key) {
-	var ratio = secondData[key]/firstData[key]
-	var secondDataItem = ratio /(1/200);
-	if (!secondDataItem) secondDataItem = 10;
-	circleSize = ratio * secondDataItem;
-	$(elementSelector).find('.sizer').animate({width: circleSize + 'px', height: circleSize + 'px'}, 3000)
-};
+
 
 var loadAllData = function() {
 	$.ajax({
@@ -68,6 +62,17 @@ var selectData = function(prefix) {
 	return currentData
 };
 
+var foodLookup = {
+	'wheat': 'wheat',
+	'cows': 'cow',
+	'potatoes': 'potato',
+	'fish': 'fish',
+	'pigs': 'pig',
+	'vegetables': 'vegetable',
+	'chickens ': 'chicken',
+	'rice': 'rice',
+	'goats': 'goat'
+}
 var cardVisualization = {
 	2: 'icons',
 	3: 'bar',
@@ -154,7 +159,6 @@ var onSubmit = function(){
 				list = [];
 				list.push(Number(firstData[dataKeys[cardNumber]]))
 				list.push(Number(secondData[dataKeys[cardNumber]]))
-				console.log(list)
 				maxNumber = list.sort(function(a, b){return a-b}).reverse()[0]
 				addMultipleIconsPopulation(item, dataKeys[cardNumber], firstData, secondData, null, maxNumber);
 			} else if (cardVizType === 'size') {
@@ -172,27 +176,23 @@ var addMultipleIconsStart = function(element, key, firstData, secondData, iconNu
 	oldIconNumber = iconNumber || Number((firstData[key]).toFixed(0));
 	if (maxNumber) {
 		ratio = oldIconNumber/maxNumber
-		arrayNumber = ratio * 500
-		console.log(key, ratio, maxNumber, arrayNumber)
+		arrayNumber = ratio * 2000
 } else {
 	arrayNumber = oldIconNumber
 }
 arrayNumber = Number(arrayNumber.toFixed(0))
-console.log(arrayNumber);
+	console.log(oldIconNumber, maxNumber, arrayNumber)
 	var array = new Array(arrayNumber);
 	$(element).find('.icon').remove();
 
 	$.each(array, function(index, item){
-	//	$(element).find('.item_icons').prepend('<div class="icon"></div>')
+		$(element).find('.item_icons').prepend('<div class="icon"></div>')
 	})
 };
 
 var addMultipleIconsPopulation= function(element, key, firstData, secondData, iconNumber, maxNumber) {
-	console.log(firstData.population, secondData.population, maxNumber)
 		ratio = firstData.population/maxNumber
-		console.log(ratio)
 		arrayNumber = ratio * 2000
-		console.log(key, ratio, maxNumber, arrayNumber)
 
 arrayNumber = Number(arrayNumber.toFixed(0))
 	var array = new Array(arrayNumber);
@@ -203,9 +203,7 @@ arrayNumber = Number(arrayNumber.toFixed(0))
 	})
 
 ratio = secondData.population/maxNumber
-		console.log(ratio)
 		arrayNumber = ratio * 2000
-		console.log(key, ratio, maxNumber, arrayNumber)
 
 arrayNumber = Number(arrayNumber.toFixed(0))
 	var array = new Array(arrayNumber);
@@ -220,24 +218,15 @@ arrayNumber = Number(arrayNumber.toFixed(0))
 };
 
 var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumber, maxNumber) {
-	return false;
-	var iconNumber = iconNumber || secondData[key];
-	console.log(iconNumber)
-	if (!iconNumber) iconNumber = 50
-	if (!oldIconNumber) iconNumber = 50
-		oldIconNumber = Number((oldIconNumber).toFixed(0));
-		iconNumber = Number((iconNumber).toFixed(0));
-	diff = iconNumber - oldIconNumber;
-	console.log(diff)
+			$(element).find('.item_icons').find('.icon-added').remove()
+			$(element).find('.item_icons').find('item-subtracted').remove()
+	var diff = secondData.foods[key] - firstData.foods[key]
 	if (maxNumber) {
-		ratio = oldIconNumber/maxNumber;
-		oldArrayNumber = ratio * 10
-		newArrayNumber = (iconNumber/maxNumber) * 10
-		console.log(ratio, oldArrayNumber, newArrayNumber, maxNumber)
-} else {
-	arrayNumber = oldIconNumber
-}
-console.log(arrayNumber)
+		ratio = firstData.foods[key]/maxNumber;
+		oldArrayNumber = ratio * 2000
+		newArrayNumber = (secondData.foods[key]/maxNumber) * 2000
+} 
+arrayNumber = Number((newArrayNumber - oldArrayNumber).toFixed(0))
 	var array = new Array(Math.abs(arrayNumber));
 	$.each(array, function(index, item){
 		if (diff > 0) {
@@ -271,13 +260,21 @@ var setUpCircle = function(item, key, firstData, secondData) {
 			return 'fewer'
 		}
 	}
-	$($(item).find('span')[0]).html(displayLookup(firstCountry))
-	$($(item).find('span')[1]).html(addCommas(Math.abs(secondData[key] - firstData[key]))+ ' ')
-	$($(item).find('span')[2]).html(increaseOrDecrease())
-	$($(item).find('span')[3]).html(displayLookup(secondCountry))
+	$($(item).find('span')[1]).html(displayLookup(firstCountry))
+	$($(item).find('span')[2]).html(addCommas(Math.abs(secondData[key] - firstData[key]))+ ' ')
+	$($(item).find('span')[3]).html(increaseOrDecrease())
+	$($(item).find('span')[4]).html(displayLookup(secondCountry))
 	var circleSize =200;
 	$(item).find('.sizer_initial').css({width: circleSize, height: circleSize})
 	$(item).find('.sizer').css({width: circleSize, height: circleSize})
+};
+
+var makeBigger = function(elementSelector, key) {
+	var ratio = secondData[key]/firstData[key]
+	var secondDataItem = ratio /(1/200);
+	if (!secondDataItem) secondDataItem = 10;
+	circleSize = ratio * secondDataItem;
+	$(elementSelector).find('.sizer').animate({width: circleSize + 'px', height: circleSize + 'px'}, 3000)
 };
 
 var advanceCard = function(event){
@@ -313,15 +310,22 @@ var displayFoods = function() {
 
 	$('.foods_list li').click(function(){
 		var text = $(this).text();
+		if (text.slice(-1) === 's') {
+			console.log('change key')
+			key = text.substring(0, text.length - 1)
+			console.log(key)
+		} else {
+			key = text
+		}
+		console.log(text)
 		$('.commodities').hide();
 		$('#'+ text).fadeIn(1000, function(){
-			addMultipleIconsEnd($('#'+ text), null, firstData, secondData, Number((firstData.foods[text]).toFixed(0)), maxNumber)
+			addMultipleIconsEnd($('#'+ text), foodLookup[text], firstData, secondData, Number((firstData.foods[foodLookup[text]]).toFixed(0)), maxNumber)
 		});
 	})
 
-	numberList = numberList.sort()
+	numberList = numberList.sort(function(a, b){return a-b})
 	maxNumber = numberList.reverse()[0];
-	console.log(maxNumber)
 	addMultipleIconsStart($('#wheat'), 'foods["wheat"]', firstData, secondData, Number((firstData.foods.wheat).toFixed(0)), maxNumber);
 	addMultipleIconsStart($('#cows'), 'foods["cows"]', firstData, secondData, Number((firstData.foods.cow).toFixed(0)), maxNumber);
 	addMultipleIconsStart($('#potatoes'), 'foods["potatoes"]', firstData, secondData, Number((firstData.foods.potato).toFixed(0)), maxNumber);
@@ -351,7 +355,7 @@ var hideShowCard = function(cardElement, firstData, secondData) {
 	//	$('.country_list').first().find('li').addClass('active');
 	//	$('.country_list').last().find('li').addClass('active');
 		}
-		if (cardNumber === "3") {
+		if (cardNumber === "x") {
 			displayFoods();
 		}
 	});
