@@ -57,9 +57,11 @@ p
 	
 h1
 	{
-	font-size:em(28);
+	font-size:em(30);
 	font-weight:400px;
-	text-align:center;
+	@include spanner (6, 1000, 0, 5);
+	margin:10px auto 10px;
+	float:none;
 	}
 
 h2
@@ -67,7 +69,7 @@ h2
 	@include spanner (6, 1000, 0, 5);
 	float:none;
 	margin:0 auto;
-	font-size:em(18);
+	font-size:em(20);
 	}
 
 
@@ -97,8 +99,18 @@ li
 	@include spanner (6, 1000, 0, 6);
 	float:none;
 	max-width:1000px;
-	border:1px solid red;
 	margin:30px auto;
+	}
+
+.chatter
+	{
+	@include spanner (6, 1000, 0, 5);
+	float:none;
+	margin:0 auto 20px;
+	font-size:em(16);
+	line-height:1.6em;
+	color:$medium_gray;
+
 	}
 	
 .content_card
@@ -106,7 +118,6 @@ li
 	@include spanner (6, 1000, 0, 6);
 	float:none;
 	max-width:1000px;
-	border:1px solid blue;
 	height:655px;
 	position:relative;
 	}
@@ -156,90 +167,95 @@ li
 		li
 		{
 		@include spanner (6, 754.656, 0, 1);
-		height:125px;
+		height:145px;
 		font-size:em(14);
 		text-align:center;
 		color:$light_gray;
-		background-image:url('../siteart/map.svg');
+		background-image:url('../siteart/map.svg'), url('../siteart/plate.png');
 		background-repeat:no-repeat;
-		background-size:270px;
+		background-size:270px, 130px;
+		font-weight:900;
 		}
 	
-		.active
-		{
-		background-color:$pale_gray;
-		border-radius:3px;
-		background-position: right bottom;
-	
-		
-		}
-	
+
 		.united_states
 			{
-			background-position: left 10px;				
+			background-position: left 20px, left 20px;				
 
 			&:hover
 			{
-			background-position: -136px 10px;		
+			background-position: -136px 20px, left 20px;		
 			}
 			
 			}
 	
 		.china
 			{
-			background-position: left -261px;
+			background-position: left -256px, left 20px;
 			
 			&:hover
 			{
-			background-position: right -261px;		
+			background-position: right -256px, left 20px;		
 			}
 			
 			}
 	
 		.tanzania
 			{
-			background-position: left -126px;
+			background-position: left -121px, left 20px;
 			
 			&:hover
 			{
-			background-position: right -126px;		
+			background-position: right -121px, left 20px;		
 			}
 			
 			}	
 	
 		.brazil
 			{
-			background-position: left -531px;
+			background-position: left -521px, left 20px;
 			
 			&:hover
 			{
-			background-position: right -531px;		
+			background-position: right -521px, left 20px;		
 			}
 			
 			}	
 
 		.japan
 			{
-			background-position: left -396px;
+			background-position: left -391px, left 20px;
 			
 			&:hover
 			{
-			background-position: right -396px;		
+			background-position: right -391px, left 20px;		
 			}
 			
 			}	
 
 	.world
 			{
-			background-position: left -667px;
+			background-position: left -656px, left 20px;
 			
 			&:hover
 			{
-			background-position: right -667px;		
+			background-position: right -656px, left 20px;		
 			}
 			
 			}	
 
+		.active
+		{
+		opacity:.3;
+		cursor:default;
+		background-position:1000px 10000px, left 20px;
+		
+			&:hover
+			{
+			background-position:1000px 10000px, left 20px;	
+			}
+		
+		}
 
 	
 	}
@@ -292,8 +308,8 @@ li
 	
 		.icon
 		{
-		width:15px;
-		height:15px;
+		width:8px;
+		height:8px;
 		float:left;
 		background-color:$red;
 		border:1px solid white;
@@ -363,3 +379,62 @@ li
 	}
 	
 	
+.bar_container
+	{
+	@include spanner (6, 1000, 0, 5);	
+	float:none;
+	margin:80px auto;
+	border-right:2px solid $light_gray;
+	height:250px;
+	position:relative;
+	background-color:#ebebeb;
+	
+		.first_country
+		{
+		height:250px;
+		width:50%;
+		background-color:rgba($red, .30);	
+		position:absolute;
+		left:0;
+		top:0;
+		}
+		
+		.second_country
+		{
+		@extend .first_country;
+		width:30%;
+		}
+	
+	
+		.country_percentage
+		{
+		color:white;
+		font-size:em(18);
+		position:absolute;
+		right:20px;
+		top:90px;
+		font-weight:700;
+		
+		
+		}
+	
+	}
+
+.sources_head
+	{
+	text-align:center;
+	margin-bottom:20px;
+	}
+
+.sources
+	{
+	
+	li
+	{
+	color:$medium_gray;
+	text-align:center;
+	line-height:1.9em;
+	
+	}
+	
+	}
