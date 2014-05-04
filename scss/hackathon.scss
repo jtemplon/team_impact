@@ -327,17 +327,18 @@ li
 	
 		.icon
 		{
-		width:8px;
-		height:8px;
+		width:9px;
+		height:9px;
 		float:left;
 		background-color:$red;
 		background-position:left top;
-		border:1px solid white;
+		border-right:1px solid white;
+		border-bottom:1px solid white;
 		}
 		
 		.icon_added
 		{
-		background-color:$dark_red;
+		background-color:$light_gray;
 		}
 
 		.icon_subtracted
@@ -355,8 +356,8 @@ li
 	
 		.sizer
 		{
-		width:150px;
-		height:150px;
+		width:300px;
+		height:300px;
 		position:absolute;
 		margin:auto;
 		top:0%;
@@ -374,8 +375,8 @@ li
 
 		.sizer_initial
 		{
-		width:200px;
-		height:200px;
+		width:300px;
+		height:300px;
 		position:absolute;
 		margin:auto;
 		top:0%;
@@ -484,6 +485,37 @@ li
 		
 		}
 		
+		}
+	
+	}
+	
+.key
+	{
+	font-size:em(14);
+	@include spanner (6, 1000, 0, 2.6);
+	float:none;
+	margin:40px auto;
+	line-height:1em;
+	font-weight:900;
+	color:$light_gray;
+	
+		.icon
+		{
+		display:inline-block;
+		width:14px;
+		height:14px;
+		background-color:$red;
+		margin:0 20px 0 10px; 
+		}
+	
+		.added
+		{
+		background-color:$light_gray;
+		}
+		
+		.reduced
+		{
+		background-color:$red_too;
 		}
 	
 	}

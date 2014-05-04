@@ -211,14 +211,15 @@ li {
   float: none;
   margin: 0 auto; }
   .item_icons .icon {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     float: left;
     background-color: #cc0202;
     background-position: left top;
-    border: 1px solid white; }
+    border-right: 1px solid white;
+    border-bottom: 1px solid white; }
   .item_icons .icon_added {
-    background-color: #a50202; }
+    background-color: #999999; }
   .item_icons .icon_subtracted {
     background-color: #f0b3b3; }
 
@@ -227,8 +228,8 @@ li {
   height: 400px;
   position: relative; }
   .sizer_container .sizer {
-    width: 150px;
-    height: 150px;
+    width: 300px;
+    height: 300px;
     position: absolute;
     margin: auto;
     top: 0%;
@@ -238,8 +239,8 @@ li {
     .sizer_container .sizer img {
       width: 100%; }
   .sizer_container .sizer_initial {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     position: absolute;
     margin: auto;
     top: 0%;
@@ -303,3 +304,25 @@ li {
     width: 45px; }
     .credits img:last-child {
       margin-right: 0px; }
+
+.key {
+  font-size: 0.875em;
+  width: 43.33333%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  margin: 40px auto;
+  line-height: 1em;
+  font-weight: 900;
+  color: #999999; }
+  .key .icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: #cc0202;
+    margin: 0 20px 0 10px; }
+  .key .added {
+    background-color: #999999; }
+  .key .reduced {
+    background-color: #f0b3b3; }
