@@ -181,13 +181,20 @@ var addMultipleIconsStart = function(element, key, firstData, secondData, iconNu
 	arrayNumber = oldIconNumber
 }
 arrayNumber = Number(arrayNumber.toFixed(0))
-	console.log(oldIconNumber, maxNumber, arrayNumber)
+warning = false;
 	var array = new Array(arrayNumber);
+	if (array.length === 0) {
+		array = new Array(1)
+		warning = true;
+	}
 	$(element).find('.icon').remove();
 
 	$.each(array, function(index, item){
 		$(element).find('.item_icons').prepend('<div class="icon"></div>')
 	})
+	if (warning) {
+		$(element).find('.item_icons').append('<p class="warning">*Too small amount to display.</p>')
+	}
 };
 
 var addMultipleIconsPopulation= function(element, key, firstData, secondData, iconNumber, maxNumber) {
@@ -228,6 +235,9 @@ var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumb
 } 
 arrayNumber = Number((newArrayNumber - oldArrayNumber).toFixed(0))
 	var array = new Array(Math.abs(arrayNumber));
+	boxEquals = maxNumber/2000
+	diff = diff * boxEquals
+	console.log(diff, firstData.foods[key], secondData.foods[key], boxEquals, ratio, maxNumber )
 	$.each(array, function(index, item){
 		if (diff > 0) {
 			$(element).find('.item_icons .clear').before('<div class="icon_added icon"></div>')
@@ -260,7 +270,7 @@ var setUpCircle = function(item, key, firstData, secondData) {
 			return 'fewer'
 		}
 	}
-	$($(item).find('span')[1]).html(displayLookup(firstCountry))
+	$($(item).find('span')[1]).html(displayLookup(firstCountry)[0].toUpperCase() + displayLookup(firstCountry).substring(1))
 	$($(item).find('span')[2]).html(addCommas(Math.abs(secondData[key] - firstData[key]))+ ' ')
 	$($(item).find('span')[3]).html(increaseOrDecrease())
 	$($(item).find('span')[4]).html(displayLookup(secondCountry))
@@ -311,13 +321,10 @@ var displayFoods = function() {
 	$('.foods_list li').click(function(){
 		var text = $(this).text();
 		if (text.slice(-1) === 's') {
-			console.log('change key')
 			key = text.substring(0, text.length - 1)
-			console.log(key)
 		} else {
 			key = text
 		}
-		console.log(text)
 		$('.commodities').hide();
 		$('#'+ text).fadeIn(1000, function(){
 			addMultipleIconsEnd($('#'+ text), foodLookup[text], firstData, secondData, Number((firstData.foods[foodLookup[text]]).toFixed(0)), maxNumber)
