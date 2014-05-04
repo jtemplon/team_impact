@@ -84,7 +84,9 @@
         "population": 1365580000
     }, 
     "World": {
-        "land_use_per_capita": 871, 
+        "water_footprint_per_capita": 476845, 
+        "emissions_footprint_per_capita": 1221, 
+        "fat": 81.8, 
         "foods": {
             "wheat": 439352760000, 
             "cow": 216630020, 
@@ -96,9 +98,11 @@
             "rice": 354810638000, 
             "goat": 549914521
         }, 
-        "population": 6656860000, 
-        "water_footprint_per_capita": 476845, 
-        "emissions_footprint_per_capita": 1221
+        "land_use_per_capita": 871, 
+        "income": 10400.0, 
+        "kcal/day": 2831.0, 
+        "protein": 79.3, 
+        "population": 6656860000
     }, 
     "Japan": {
         "water_footprint_per_capita": 289627, 
