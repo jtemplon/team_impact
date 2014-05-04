@@ -174,15 +174,15 @@ var onSubmit = function(){
 };
 
 var addMultipleIconsStart = function(element, key, firstData, secondData, iconNumber, maxNumber) {
-	oldIconNumber = iconNumber || Number((firstData[key]).toFixed(0));
-	if (maxNumber) {
-		ratio = oldIconNumber/maxNumber
-		arrayNumber = ratio * 2000
-} else {
-	arrayNumber = oldIconNumber
-}
-arrayNumber = Number(arrayNumber.toFixed(0))
-warning = false;
+//  oldIconNumber = iconNumber || Number((firstData[key]).toFixed(0));
+//  if (maxNumber) {
+//      ratio = oldIconNumber/maxNumber
+//      arrayNumber = ratio * 2000
+// } else {
+//  arrayNumber = oldIconNumber
+// }
+// arrayNumber = Number(arrayNumber.toFixed(0))
+// warning = false;
 	var array = new Array(arrayNumber);
 	if (array.length === 0) {
 		array = new Array(1)
@@ -194,11 +194,11 @@ warning = false;
 	$.each(array, function(index, item){
 		$(element).find('.item_icons').prepend('<div class="icon"></div>')
 	})
-	if (warning) {
-		$(element).find('.item_icons').append('<p class="warning">*Too small amount to display.</p>')
-	}
+    // if (warning) {
+    //  $(element).find('.item_icons').append('<p class="warning">*Too small amount to display.</p>')
+    // }
 	var text = $(element).attr('id')
-	var max = firstData.foods[foodLookup[text]]
+	var max = firstData.foods[foodLookup[text]]*firstData.population
 	$(element).find('.explainer_text span').html(addCommas((max/1000).toFixed(0)))
 };
 
@@ -232,7 +232,7 @@ arrayNumber = Number(arrayNumber.toFixed(0))
 var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumber, maxNumber) {
 			$(element).find('.item_icons').find('.icon-added').remove()
 			$(element).find('.item_icons').find('item-subtracted').remove()
-			var list = [firstData.foods[key], secondData.foods[key]]
+			var list = [firstData.foods[key]*firstData.population, secondData.foods[key]*firstData.population]
 			var max = list.sort(function(a, b){return a-b}).reverse()[0]
 			var min = list.sort(function(a, b){return a-b})[0]
 			var percent = (min/max)

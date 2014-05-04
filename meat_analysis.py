@@ -112,7 +112,7 @@ metacsv.close()
 for ck in countries.keys():
     countries[ck]["population"] = pop_dict[ck]
     for ak in countries[ck]["foods"].keys():
-        countries[ck]["foods"][ak] = int(countries[ck]["foods"][ak] * pop_dict[ck] / float(kg_to_animals[ak]))
+        countries[ck]["foods"][ak] = round(countries[ck]["foods"][ak] / float(kg_to_animals[ak]), 2)
 
 meat_data = json.dumps(countries, indent=4)
 f = open("meat_data.json", "w")
