@@ -131,9 +131,10 @@ var onSubmit = function(){
 	hideShowCard($('#card_2'), firstData, secondData);
 };
 
-var addMultipleIconsStart = function(element, key, firstData, secondData) {
-	console.log(key)
-	var iconNumber = Number((firstData[key]).toFixed(0));
+var addMultipleIconsStart = function(element, key, firstData, secondData, iconNumber) {
+	console.log(iconNumber)
+	var iconNumber = iconNumber || Number((firstData[key]).toFixed(0));
+	console.log(iconNumber)
 	var array = new Array(iconNumber);
 	$(element).find('.icon').remove();
 
@@ -156,7 +157,7 @@ var addMultipleIconsEnd = function(element, key, firstData, secondData) {
 			$(element).find('.item_icons .clear').before('<div class="icon_added icon"></div>')
 		}
 		else {
-			$('#card_' + cardNumber).find('.item_icons .icon').slice(diff).addClass('icon_added');
+			$('#card_' + cardNumber).find('.item_icons .icon').slice(diff).addClass('icon_subtracted');
 		}
 	})
 };
@@ -182,6 +183,20 @@ var advanceCard = function(event){
 	}
 };
 
+var displayFoods = function() {
+	alert('s')
+	addMultipleIconsStart($('#wheat'), 'foods["wheat"]', firstData, secondData, Number((firstData.foods.wheat*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#cows'), 'foods["cows"]', firstData, secondData, Number((firstData.foods.cow*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#potatoes'), 'foods["potatoes"]', firstData, secondData, Number((firstData.foods.potato*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#fish'), 'foods["fish"]', firstData, secondData, Number((firstData.foods.fish*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#pigs'), 'foods["pigs"]', firstData, secondData, Number((firstData.foods.pig*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#vegetables'), 'foods["vegetables"]', firstData, secondData, Number((firstData.foods.vegetable*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#chickens'), 'foods["chickens"]', firstData, secondData, Number((firstData.foods.chicken*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#rice'), 'foods["rice"]', firstData, secondData, Number((firstData.foods.rice*(1/100000000)).toFixed(0)));
+	addMultipleIconsStart($('#goat'), 'foods["goat"]', firstData, secondData, Number((firstData.foods.goat*(1/100000000)).toFixed(0)));
+
+};
+
 var hideShowCard = function(cardElement, firstData, secondData) {
 	$('.content_card').hide();
 	cardElement.fadeIn(1500, function(){
@@ -194,6 +209,9 @@ var hideShowCard = function(cardElement, firstData, secondData) {
 		if (cardNumber === 1) {
 			$('.active').removeClass('active')
 			$('#world_second_2').click();
+		}
+		if (cardNumber === "3") {
+			displayFoods();
 		}
 	});
 	
