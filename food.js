@@ -174,15 +174,6 @@ var onSubmit = function(){
 };
 
 var addMultipleIconsStart = function(element, key, firstData, secondData, iconNumber, maxNumber) {
-//  oldIconNumber = iconNumber || Number((firstData[key]).toFixed(0));
-//  if (maxNumber) {
-//      ratio = oldIconNumber/maxNumber
-//      arrayNumber = ratio * 2000
-// } else {
-//  arrayNumber = oldIconNumber
-// }
-// arrayNumber = Number(arrayNumber.toFixed(0))
-// warning = false;
 	var array = new Array(arrayNumber);
 	if (array.length === 0) {
 		array = new Array(1)
@@ -194,9 +185,6 @@ var addMultipleIconsStart = function(element, key, firstData, secondData, iconNu
 	$.each(array, function(index, item){
 		$(element).find('.item_icons').prepend('<div class="icon"></div>')
 	})
-    // if (warning) {
-    //  $(element).find('.item_icons').append('<p class="warning">*Too small amount to display.</p>')
-    // }
 	var text = $(element).attr('id')
 	var max = firstData.foods[foodLookup[text]]*firstData.population
 	$(element).find('.explainer_text span').html(addCommas((max/1000).toFixed(0)))
@@ -245,13 +233,13 @@ var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumb
 			var arrayNumber = Number(arrayLength.toFixed(0));
 			var array = new Array(arrayNumber)
 		if (whichWay === 'increase') {
+			$(element).find('.item_icons .icon').slice(arrayNumber).addClass('icon_added');
+        }
 
-			$(element).find('.item_icons .icon').slice(arrayNumber * -1).addClass('icon_added');
-
-}
-
-	if (whichWay === 'decrease') {
-			$(element).find('.item_icons .icon').slice(arrayNumber * -1).addClass('icon_subtracted');
+	    if (whichWay === 'decrease') {
+			$(element).find('.item_icons .icon').slice(arrayNumber).addClass('icon_subtracted');
+            // document.write(arrayNumber * -1)
+            // document.write(arrayNumber)
 		}
 };
 
