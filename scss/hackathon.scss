@@ -38,8 +38,27 @@ $white:#fff;
 a
 	{
 	text-decoration:none;
+	color:$light_gray;
+		@include transition;
+	
+		&:hover
+		{
+		color:$dark_aqua;		
+		}	
+	}
+	
+a img
+	{
+	border:none;
+		@include transition;
+	
+	&:hover
+	{
+	opacity:.5;
+	}
 	
 	}
+	
 	
 body
 	{
@@ -111,6 +130,7 @@ li
 	float:none;
 	max-width:1000px;
 	margin:30px auto;
+	width:1000px
 	}
 
 .chatter
@@ -147,7 +167,7 @@ li
 	{
 	@include spanner (6, 1000, 0, 5);
 	float:none;
-	margin:0 auto;	
+	margin:20px auto 0px;	
 	
 	li
 		{
@@ -155,7 +175,7 @@ li
 		height:28px;
 		border-radius:2px;
 		text-align:center;
-		font-size:em(14);
+		font-size:em(13);
 		color:white;
 		background-color:$aqua_blue;
 		padding-top:5px;
@@ -313,6 +333,7 @@ li
 		&:hover
 		{
 		background-color:$dark_aqua;
+		color:white;
 		}
 	
 	}
@@ -410,7 +431,6 @@ li
 	@include spanner (6, 1000, 0, 5);	
 	float:none;
 	margin:80px auto;
-	border-right:2px solid $light_gray;
 	height:250px;
 	position:relative;
 	background-color:#ebebeb;
@@ -501,7 +521,7 @@ li
 .key
 	{
 	font-size:em(14);
-	@include spanner (6, 1000, 0, 2.6);
+	@include spanner (6, 1000, 0, 1.8);
 	float:none;
 	margin:40px auto;
 	line-height:1em;
@@ -515,6 +535,8 @@ li
 		height:14px;
 		background-color:$light_gray;
 		margin:0 20px 0 10px; 
+		vertical-align:bottom;
+		line-height:.8em;
 		}
 	
 		.added
@@ -527,5 +549,14 @@ li
 		background-color:$red_too;
 		}
 	
+	
+	}
+	
+	.logo
+	{
+	width:60px;
+	float:left;
+	margin-top:-20px;
+	margin-right:10px;
 	
 	}
