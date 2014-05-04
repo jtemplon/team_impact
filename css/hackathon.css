@@ -17,7 +17,7 @@ p {
   font-size: 1em; }
 
 h1 {
-  font-size: 1.875em;
+  font-size: 1.75em;
   font-weight: 400px;
   width: 83.33333%;
   margin: 0 0% 0 0;
@@ -25,6 +25,9 @@ h1 {
   float: left;
   margin: 10px auto 10px;
   float: none; }
+  h1 span {
+    color: #999999;
+    font-weight: 200; }
 
 h2 {
   width: 83.33333%;
@@ -33,7 +36,8 @@ h2 {
   float: left;
   float: none;
   margin: 0 auto;
-  font-size: 1.25em; }
+  font-size: 1.25em;
+  clear: both; }
 
 ul {
   margin: 0px;
@@ -68,6 +72,15 @@ li {
   font-size: 1em;
   line-height: 1.6em;
   color: #666666; }
+
+.explainer_text {
+  width: 83.33333%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  margin: 20px auto;
+  font-size: 0.8125em; }
 
 .content_card {
   width: 100.0%;

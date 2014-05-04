@@ -57,11 +57,19 @@ p
 	
 h1
 	{
-	font-size:em(30);
+	font-size:em(28);
 	font-weight:400px;
 	@include spanner (6, 1000, 0, 5);
 	margin:10px auto 10px;
 	float:none;
+	
+		span
+		{
+		color:$light_gray;
+		font-weight:200;
+		
+		}
+	
 	}
 
 h2
@@ -70,6 +78,7 @@ h2
 	float:none;
 	margin:0 auto;
 	font-size:em(20);
+	clear:both;
 	}
 
 
@@ -110,7 +119,16 @@ li
 	font-size:em(16);
 	line-height:1.6em;
 	color:$medium_gray;
-
+	}
+	
+	
+.explainer_text
+	{
+	@include spanner (6, 1000, 0, 5);
+	float:none;
+	margin:20px auto;
+	font-size:em(13);
+	
 	}
 	
 .content_card
@@ -413,9 +431,7 @@ li
 		position:absolute;
 		right:20px;
 		top:90px;
-		font-weight:700;
-		
-		
+		font-weight:700;	
 		}
 	
 	}
