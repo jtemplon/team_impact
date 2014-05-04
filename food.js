@@ -300,7 +300,7 @@ var makeBigger = function(elementSelector, key) {
 	var secondDataItem = ratio /(1/200);
 	if (!secondDataItem) secondDataItem = 10;
 	circleSize = ratio * secondDataItem;
-	$(elementSelector).find('.sizer').animate({width: circleSize + 'px', height: circleSize + 'px'}, 3000)
+	$(elementSelector).find('.sizer').animate({width: circleSize + 'px', height: circleSize + 'px'}, 1500)
 };
 
 var advanceCard = function(event){
@@ -375,8 +375,8 @@ var hideShowCard = function(cardElement, firstData, secondData) {
 			adjustBarChart(cardElement, dataKeys[cardNumber], firstData, secondData);
 		}
 		if (cardNumber === "1") {
-	//	$('.country_list').first().find('li').addClass('active');
-	//	$('.country_list').last().find('li').addClass('active');
+		$('.country_list').first().find('li').removeClass('active');
+		$('.country_list').last().find('li').removeClass('active');
 		}
 		if (cardNumber === "x") {
 			displayFoods();
