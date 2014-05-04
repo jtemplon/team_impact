@@ -225,8 +225,8 @@ arrayNumber = Number(arrayNumber.toFixed(0))
 	$('#card_2_pop2').next().prepend('<div class="icon"></div>')
 })
 	$('#card_2_text').html('Each icon equals ' + addCommas(maxNumber/2000) + ' people.')
-	$('#card_2_pop1').html('Population of ' + displayLookup(firstCountry))
-	$('#card_2_pop2').html('Population of ' + displayLookup(secondCountry))
+	$('#card_2_pop1').html('Population of ' + displayLookup(firstCountry) + ': ' + addCommas(firstData.population))
+	$('#card_2_pop2').html('Population of ' + displayLookup(secondCountry) + ': ' + addCommas(secondData.population))
 };
 
 var addMultipleIconsEnd = function(element, key, firstData, secondData, iconNumber, maxNumber) {
