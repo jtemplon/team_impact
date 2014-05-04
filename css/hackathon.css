@@ -180,8 +180,8 @@ li {
   float: none;
   margin: 0 auto; }
   .item_icons .icon {
-    width: 15px;
-    height: 15px;
+    width: 8px;
+    height: 8px;
     float: left;
     background-color: #cc0202;
     border: 1px solid white;
@@ -220,3 +220,31 @@ li {
     border: 2px solid yellow; }
     .sizer_container .sizer_initial img {
       width: 100%; }
+
+.bar_container {
+  width: 83.33333%;
+  margin: 0 0% 0 0;
+  box-sizing: border-box;
+  float: left;
+  float: none;
+  margin: 80px auto;
+  border-right: 2px solid #999999;
+  height: 250px;
+  position: relative;
+  background-color: #ebebeb; }
+  .bar_container .first_country, .bar_container .second_country {
+    height: 250px;
+    width: 50%;
+    background-color: rgba(204, 2, 2, 0.3);
+    position: absolute;
+    left: 0;
+    top: 0; }
+  .bar_container .second_country {
+    width: 30%; }
+  .bar_container .country_percentage {
+    color: white;
+    font-size: 1.125em;
+    position: absolute;
+    right: 20px;
+    top: 90px;
+    font-weight: 700; }
