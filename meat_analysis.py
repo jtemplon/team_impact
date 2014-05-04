@@ -85,6 +85,8 @@ for ck in countries.keys():
     countries[ck]["emissions_footprint_per_capita"] = 0
     for ak in countries[ck]["foods"].keys():
         countries[ck]["emissions_footprint_per_capita"] += int(countries[ck]["foods"][ak]*gas_dict[ak])
+    #Adding division to make this tons
+    countries[ck]["emissions_footprint_per_capita"] = round(float(countries[ck]["emissions_footprint_per_capita"]) / 1000, 1)
 
 #Add in Land Use
 land_dict = {"goat": 15.7, "cow": 16.7, "pig": 3.4, "chicken": 4.0, "fish": 2.4, 
@@ -93,6 +95,8 @@ for ck in countries.keys():
     countries[ck]["land_use_per_capita"] = 0
     for ak in countries[ck]["foods"].keys():
         countries[ck]["land_use_per_capita"] += int(countries[ck]["foods"][ak]*land_dict[ak])
+    #Adding division to make this acres
+    countries[ck]["land_use_per_capita"] = round(float(countries[ck]["land_use_per_capita"]) / 4046.86, 1)
 
 #Now we add in some other random data for countries to add context
 metacsv = open("fof_diet.csv", "rU")
