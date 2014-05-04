@@ -45,11 +45,12 @@ var setUpSubmit = function (){
 	}
 }
 
-var makeBigger = function(elementSelector) {
-	var circleSize = secondData['protein'];
-	if (!circleSize) circleSize= 200;
-	console.log(secondData, circleSize)
-	$('.sizer').animate({width: circleSize + 'px', height: circleSize + 'px'}, 3000)
+var makeBigger = function(elementSelector, key) {
+	var ratio = firstData[key]/secondData[key]
+	var secondDataItem = ratio * 200;
+	if (!secondDataItem) secondDataItem = 10;
+	circleSize = ratio * secondDataItem;
+	$(elementSelector).find('.sizer').animate({width: circleSize + 'px', height: circleSize + 'px'}, 3000)
 };
 
 var loadAllData = function() {
@@ -71,7 +72,26 @@ var selectData = function(prefix) {
 
 var cardVisualization = {
 	2: 'icons',
-	3: 'size'
+	3: 'size',
+	4: 'size',
+	5: 'size',
+	6: 'size',
+	7: 'size',
+	8: 'size',
+	9: 'size',
+	10: 'size'
+};
+
+var dataKeys = {
+	2: 'protein',
+	3: 'protein',
+	4: 'protein',
+	5: 'land_use_per_capita',
+	6: 'water_footprint_per_capita',
+	7: 'emissions_footprint_per_capita',
+	8: 'fat',
+	9: 'protein',
+	10: 'kcal/day'
 };
 
 var countryLookup = function(prefix){
@@ -101,7 +121,7 @@ var onSubmit = function(){
 			cardNumber = $(item).attr('id').replace('card_', '');
 			cardVizType = cardVisualization[cardNumber];
 			if (cardVizType == 'icons') {
-				addMultipleIconsStart(item, firstData, secondData);
+				addMultipleIconsStart(item, dataKeys[cardNumber], firstData, secondData);
 			} else if (cardVizType === 'size') {
 				setUpCircle(item, firstData, secondData);
 			};
@@ -111,8 +131,9 @@ var onSubmit = function(){
 	hideShowCard($('#card_2'), firstData, secondData);
 };
 
-var addMultipleIconsStart = function(element, firstData, secondData) {
-	var iconNumber = Number((firstData['protein']).toFixed(0));
+var addMultipleIconsStart = function(element, key, firstData, secondData) {
+	console.log(key)
+	var iconNumber = Number((firstData[key]).toFixed(0));
 	var array = new Array(iconNumber);
 	$(element).find('.icon').remove();
 
@@ -121,9 +142,9 @@ var addMultipleIconsStart = function(element, firstData, secondData) {
 	})
 };
 
-var addMultipleIconsEnd = function(element, firstData, secondData) {
-	var oldIconNumber = firstData['protein'];
-	var iconNumber = secondData['protein'];
+var addMultipleIconsEnd = function(element, key, firstData, secondData) {
+	var oldIconNumber = firstData[key];
+	var iconNumber = secondData[key];
 	if (!iconNumber) iconNumber = 50
 	if (!oldIconNumber) iconNumber = 50
 		oldIconNumber = Number((oldIconNumber).toFixed(0));
@@ -140,11 +161,10 @@ var addMultipleIconsEnd = function(element, firstData, secondData) {
 	})
 };
 
-var setUpCircle = function(item, firstData, secondData) {
-	var circleSize = firstData['protein'];
-	console.log(circleSize)
-	$('.sizer_initial').css({width: circleSize, height: circleSize})
-	$('.sizer').css({width: circleSize, height: circleSize})
+var setUpCircle = function(item, key, firstData, secondData) {
+//	var circleSize = firstData[key];
+//	$(item).find('.sizer_initial').css({width: circleSize, height: circleSize})
+//	$(item).find('.sizer').css({width: circleSize, height: circleSize})
 };
 
 var advanceCard = function(event){
@@ -167,11 +187,12 @@ var hideShowCard = function(cardElement, firstData, secondData) {
 	cardElement.fadeIn(1500, function(){
 		cardNumber = cardElement.attr('id').replace('card_', '')
 		if (cardVisualization[cardNumber] === 'icons') {
-			addMultipleIconsEnd(cardElement, firstData, secondData)
+			addMultipleIconsEnd(cardElement, dataKeys[cardNumber], firstData, secondData)
 		} else if (cardVisualization[cardNumber] === 'size') {
-			makeBigger(cardElement, firstData, secondData);
+			makeBigger(cardElement, dataKeys[cardNumber], firstData, secondData);
 		}
 		if (cardNumber === 1) {
+			$('.active').removeClass('active')
 			$('#world_second_2').click();
 		}
 	});
