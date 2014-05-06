@@ -42,6 +42,9 @@ h1 {
   h1 span {
     color: #999999;
     font-weight: 200; }
+    @media screen and (max-width: 31.25em) {
+      h1 span {
+        display: block; } }
 
 h2 {
   width: 83.33333%;
@@ -52,7 +55,8 @@ h2 {
   margin: 0 auto 10px;
   font-size: 1.125em;
   clear: both;
-  font-weight: 700; }
+  font-weight: 700;
+  line-height: 140%; }
 
 ul {
   margin: 0px;
@@ -76,8 +80,7 @@ li {
   float: left;
   float: none;
   max-width: 1000px;
-  margin: 30px auto;
-  width: 1000px; }
+  margin: 30px auto; }
 
 .chatter {
   width: 83.33333%;
@@ -106,7 +109,7 @@ li {
   float: left;
   float: none;
   max-width: 1000px;
-  height: 655px;
+  padding-bottom: 80px;
   position: relative; }
 
 .foods_list {
@@ -124,13 +127,39 @@ li {
     height: 28px;
     border-radius: 2px;
     text-align: center;
-    font-size: 0.8125em;
+    font-size: 0.75em;
     color: white;
     background-color: #4094aa;
     padding-top: 5px;
     transition-property: all;
     transition-duration: .07s;
     transition-timing-function: ease-in-out; }
+    @media screen and (max-width: 51.25em) {
+      .foods_list li {
+        width: 18.4%;
+        margin: 0 2% 0 0;
+        box-sizing: border-box;
+        float: left;
+        margin-bottom: 10px; }
+        .foods_list li:nth-child(5) {
+          margin-right: 0px; } }
+    @media screen and (max-width: 31.25em) {
+      .foods_list li {
+        width: 49%;
+        margin: 0 2% 0 0;
+        box-sizing: border-box;
+        float: left;
+        margin-bottom: 10px; }
+        .foods_list li:nth-child(2) {
+          margin-right: 0px; }
+        .foods_list li:nth-child(4) {
+          margin-right: 0px; }
+        .foods_list li:nth-child(5) {
+          margin-right: 2%; }
+        .foods_list li:nth-child(6) {
+          margin-right: 0px; }
+        .foods_list li:nth-child(8) {
+          margin-right: 0px; } }
     .foods_list li:hover {
       background-color: #317182;
       cursor: pointer; }
@@ -149,44 +178,63 @@ li {
     margin: 0 0% 0 0;
     box-sizing: border-box;
     float: left;
-    height: 145px;
+    height: 155px;
     font-size: 0.875em;
     text-align: center;
     color: #999999;
-    background-image: url("../siteart/map.svg"), url("../siteart/plate.png");
     background-repeat: no-repeat;
-    background-size: 270px, 130px;
-    font-weight: 900; }
+    background-size: 200%, 100%;
+    font-weight: 900;
+    background-position: left top, left top; }
+    @media screen and (max-width: 57.8125em) {
+      .country_list li {
+        height: 138px; } }
+    @media screen and (max-width: 48.4375em) {
+      .country_list li {
+        height: 120px; } }
+    @media screen and (max-width: 43.75em) {
+      .country_list li {
+        height: 220px;
+        width: 33.33333%;
+        margin: 0 0% 0 0;
+        box-sizing: border-box;
+        float: left; } }
+    @media screen and (max-width: 37.5em) {
+      .country_list li {
+        height: 200px; } }
+    @media screen and (max-width: 31.25em) {
+      .country_list li {
+        height: 230px;
+        width: 50%;
+        margin: 0 0% 0 0;
+        box-sizing: border-box;
+        float: left; } }
+    @media screen and (max-width: 25em) {
+      .country_list li {
+        height: 200px; } }
+    @media screen and (max-width: 21.875em) {
+      .country_list li {
+        height: 180px; } }
+    .country_list li:hover {
+      background-position: right top, left top; }
   .country_list .united_states {
-    background-position: left 20px, left 20px; }
-    .country_list .united_states:hover {
-      background-position: -136px 20px, left 20px; }
+    background-image: url("../siteart/united.svg"), url("../siteart/plate.png"); }
   .country_list .china {
-    background-position: left -256px, left 20px; }
-    .country_list .china:hover {
-      background-position: right -256px, left 20px; }
+    background-image: url("../siteart/china.svg"), url("../siteart/plate.png"); }
   .country_list .tanzania {
-    background-position: left -121px, left 20px; }
-    .country_list .tanzania:hover {
-      background-position: right -121px, left 20px; }
+    background-image: url("../siteart/tanz.svg"), url("../siteart/plate.png"); }
   .country_list .brazil {
-    background-position: left -521px, left 20px; }
-    .country_list .brazil:hover {
-      background-position: right -521px, left 20px; }
+    background-image: url("../siteart/brazil.svg"), url("../siteart/plate.png"); }
   .country_list .japan {
-    background-position: left -391px, left 20px; }
-    .country_list .japan:hover {
-      background-position: right -391px, left 20px; }
+    background-image: url("../siteart/japan.svg"), url("../siteart/plate.png"); }
   .country_list .world {
-    background-position: left -656px, left 20px; }
-    .country_list .world:hover {
-      background-position: right -656px, left 20px; }
+    background-image: url("../siteart/world.svg"), url("../siteart/plate.png"); }
   .country_list .active {
     opacity: .3;
     cursor: default;
-    background-position: 1000px 10000px, left 20px; }
+    background-position: 1000px 10000px, left top; }
     .country_list .active:hover {
-      background-position: 1000px 10000px, left 20px; }
+      background-position: 1000px 10000px, left top; }
 
 .utility_text {
   font-size: 0.6875em;
@@ -215,6 +263,9 @@ li {
   transition-property: all;
   transition-duration: .07s;
   transition-timing-function: ease-in-out; }
+  @media screen and (max-width: 21.875em) {
+    .next_button {
+      width: 95%; } }
   .next_button:hover {
     background-color: #317182;
     color: white; }
@@ -257,6 +308,9 @@ li {
     right: 0%; }
     .sizer_container .sizer img {
       width: 100%; }
+    @media screen and (max-width: 31.25em) {
+      .sizer_container .sizer {
+        width: 150px; } }
   .sizer_container .sizer_initial {
     width: 300px;
     height: 300px;
@@ -268,6 +322,9 @@ li {
     right: 0%; }
     .sizer_container .sizer_initial img {
       width: 100%; }
+    @media screen and (max-width: 31.25em) {
+      .sizer_container .sizer_initial {
+        width: 150px; } }
 
 .bar_container {
   width: 83.33333%;
@@ -326,7 +383,7 @@ li {
 
 .key {
   font-size: 0.875em;
-  width: 30.0%;
+  width: 83.33333%;
   margin: 0 0% 0 0;
   box-sizing: border-box;
   float: left;
@@ -347,9 +404,18 @@ li {
     background-color: #cc0202; }
   .key .reduced {
     background-color: #cac8d2; }
+  .key .break {
+    display: none; }
+    @media screen and (max-width: 23.75em) {
+      .key .break {
+        display: block; } }
 
 .logo {
   width: 60px;
   float: left;
   margin-top: -20px;
   margin-right: 10px; }
+  @media screen and (max-width: 37.5em) {
+    .logo {
+      width: 85px;
+      margin-top: -15px; } }

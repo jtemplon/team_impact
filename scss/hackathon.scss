@@ -87,6 +87,13 @@ h1
 		color:$light_gray;
 		font-weight:200;
 		
+		@media screen and (max-width:em(500)) 
+		{
+		display:block
+	
+		}
+		
+		
 		}
 	
 	}
@@ -99,6 +106,7 @@ h2
 	font-size:em(18);
 	clear:both;
 	font-weight:700;
+	line-height:140%;
 	}
 
 
@@ -130,7 +138,6 @@ li
 	float:none;
 	max-width:1000px;
 	margin:30px auto;
-	width:1000px
 	}
 
 .chatter
@@ -158,7 +165,7 @@ li
 	@include spanner (6, 1000, 0, 6);
 	float:none;
 	max-width:1000px;
-	height:655px;
+	padding-bottom:80px;
 	position:relative;
 	}
 	
@@ -167,7 +174,7 @@ li
 	{
 	@include spanner (6, 1000, 0, 5);
 	float:none;
-	margin:20px auto 0px;	
+	margin:20px auto 0px;
 	
 	li
 		{
@@ -175,11 +182,58 @@ li
 		height:28px;
 		border-radius:2px;
 		text-align:center;
-		font-size:em(13);
+		font-size:em(12);
 		color:white;
 		background-color:$aqua_blue;
 		padding-top:5px;
 	 	@include transition;
+	 	
+	 		@media screen and (max-width:em(820)) 
+			{
+			@include spanner (5, 1000, 20, 1);
+			margin-bottom:10px;
+			
+			&:nth-child(5)
+			{
+			margin-right:0px;
+			
+			}
+			
+			
+			}
+			
+		@media screen and (max-width:em(500)) 
+			{
+			@include spanner (2, 1000, 20, 1);
+			margin-bottom:10px;
+			
+			&:nth-child(2)
+			{
+			margin-right:0px;	
+			}
+			
+			&:nth-child(4)
+			{
+			margin-right:0px;	
+			}
+			
+			&:nth-child(5)
+			{
+			margin-right:2%;	
+			}
+			
+			&:nth-child(6)
+			{
+			margin-right:0px;	
+			}
+			
+			&:nth-child(8)
+			{
+			margin-right:0px;	
+			}
+			
+			}	
+			
 		
 		&:hover
 		{
@@ -207,92 +261,105 @@ li
 		li
 		{
 		@include spanner (6, 754.656, 0, 1);
-		height:145px;
+		height:155px;
 		font-size:em(14);
 		text-align:center;
 		color:$light_gray;
-		background-image:url('../siteart/map.svg'), url('../siteart/plate.png');
 		background-repeat:no-repeat;
-		background-size:270px, 130px;
+		background-size:200%, 100%;
 		font-weight:900;
+		background-position: left top, left top;
+		
+			@media screen and (max-width:em(925)) 
+			{
+			height:138px;
+			}
+		
+			@media screen and (max-width:em(775)) 
+			{
+			height:120px;
+			}
+			
+			@media screen and (max-width:em(700)) 
+			{
+			height:220px;
+			@include spanner (3, 754.656, 0, 1);
+			}
+
+			@media screen and (max-width:em(600)) 
+			{
+			height:200px;
+			}
+			
+			@media screen and (max-width:em(500)) 
+			{
+			height:230px;
+			@include spanner (2, 754.656, 0, 1);			
+			}
+
+			@media screen and (max-width:em(400)) 
+			{
+			height:200px;
+			}
+		
+			@media screen and (max-width:em(350)) 
+			{
+			height:180px;
+			}
+				
+		
+		
+			&:hover
+			{
+			background-position: right top, left top;		
+			}
+		
 		}
 	
 
 		.united_states
 			{
-			background-position: left 20px, left 20px;				
-
-			&:hover
-			{
-			background-position: -136px 20px, left 20px;		
-			}
-			
+			background-image:url('../siteart/united.svg'), url('../siteart/plate.png');
 			}
 	
 		.china
 			{
-			background-position: left -256px, left 20px;
-			
-			&:hover
-			{
-			background-position: right -256px, left 20px;		
-			}
-			
+			background-image:url('../siteart/china.svg'), url('../siteart/plate.png');
+
 			}
 	
 		.tanzania
 			{
-			background-position: left -121px, left 20px;
-			
-			&:hover
-			{
-			background-position: right -121px, left 20px;		
-			}
-			
+			background-image:url('../siteart/tanz.svg'), url('../siteart/plate.png');
+
 			}	
 	
 		.brazil
 			{
-			background-position: left -521px, left 20px;
-			
-			&:hover
-			{
-			background-position: right -521px, left 20px;		
-			}
-			
+			background-image:url('../siteart/brazil.svg'), url('../siteart/plate.png');
+
 			}	
 
 		.japan
 			{
-			background-position: left -391px, left 20px;
-			
-			&:hover
-			{
-			background-position: right -391px, left 20px;		
-			}
-			
+			background-image:url('../siteart/japan.svg'), url('../siteart/plate.png');
+
 			}	
 
 	.world
 			{
-			background-position: left -656px, left 20px;
-			
-			&:hover
-			{
-			background-position: right -656px, left 20px;		
-			}
-			
+			background-image:url('../siteart/world.svg'), url('../siteart/plate.png');
 			}	
 
 		.active
 		{
 		opacity:.3;
 		cursor:default;
-		background-position:1000px 10000px, left 20px;
+		background-position:1000px 10000px, left top;
 		
 			&:hover
 			{
-			background-position:1000px 10000px, left 20px;	
+			background-position:1000px 10000px, left top;	
 			}
 		
 		}
@@ -329,6 +396,11 @@ li
 	right:0px;
 	@include transition;
 
+		@media screen and (max-width:em(350)) 
+		{
+		width:95%
+		}
+	
 	
 		&:hover
 		{
@@ -398,8 +470,12 @@ li
 			img
 			{
 			width:100%
-			
 			}
+			
+			@media screen and (max-width:em(500)) 
+			{
+			width:150px;
+			}	
 		
 		}		
 
@@ -418,6 +494,11 @@ li
 			{
 			width:100%
 			
+			}
+		
+			@media screen and (max-width:em(500)) 
+			{
+			width:150px;
 			}
 		
 		
@@ -522,7 +603,7 @@ li
 .key
 	{
 	font-size:em(14);
-	@include spanner (6, 1000, 0, 1.8);
+	@include spanner (6, 1000, 0, 5);
 	float:none;
 	margin:40px auto;
 	line-height:1em;
@@ -549,7 +630,17 @@ li
 		{
 		background-color:$silver;
 		}
-	
+		
+		.break
+		{
+		display:none;
+		
+			@media screen and (max-width:em(380)) 
+			{
+			display:block;
+			}
+		
+		}
 	
 	}
 	
@@ -559,5 +650,14 @@ li
 	float:left;
 	margin-top:-20px;
 	margin-right:10px;
+
+		
+		@media screen and (max-width:em(600)) 
+		{
+		width:85px;
+		margin-top:-15px;
+		}
+	
 	
 	}
+
